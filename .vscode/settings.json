@@ -1,0 +1,10 @@
+{
+	"[javascript][html]": {
+		"edotor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"zenMode.fullScreen": true,
+	"editor.formatOnSave": true,
+	"eslint.run": "onSave",
+	"prettier.singleAttributePerLine": false,
+	"prettier.semi": false
+}
