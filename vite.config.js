@@ -3,5 +3,6 @@ import { ssp } from 'sveltekit-search-params/plugin';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit(), ssp()]
+	plugins: [sveltekit(), ssp()],
+	base: '/saftechcanada'
 });
