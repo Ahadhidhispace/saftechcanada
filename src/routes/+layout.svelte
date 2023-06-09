@@ -198,6 +198,7 @@
 		class="flex justify-between items-center"	
 	>
 		<section class=" flex {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
+			<a href="/">
 			<svg
 					class=" h-10 w-auto"
 					xmlns="http://www.w3.org/2000/svg"
@@ -251,6 +252,7 @@
 						></g
 					></svg
 				>
+		</a>
 		</section>
 		<section class="h-full flex justify-center items-center {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
 			<div class="h-full">
@@ -1042,6 +1044,7 @@
 				<span class="block text-dark-blue font-bold text-xl leading-5">QUOTE</span>
 			</div>
 		</button>
+
 
 		<!-- <div
 			class="absolute rounded-xl inset-0 bg-saftech-black w-[50px] h-[50px] pointer-events-none animate-pulse"

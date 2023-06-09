@@ -416,7 +416,7 @@
 </section>
 <!-- The end of Testimonials section -->
 
-<!-- Testimonials section -->
+<!-- History section -->
 <section
 	class="flex justify-between items-center w-full h-fit bg-dark-blue py-16 mx-auto max-w-full px-2 sm:px-6 lg:px-8"
 >
@@ -431,7 +431,7 @@
 		</div>
 	</div>
 </section>
-<!-- The end of Testimonials section -->
+<!-- The end of History section section -->
 
 <!-- Testimonials section -->
 <section
