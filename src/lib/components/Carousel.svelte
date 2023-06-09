@@ -8,9 +8,7 @@
 	import slideTwo from '$lib/assets/images/slide_02.jpg';
 	import slideThree from '$lib/assets/images/slide_03.jpg';
 	import slideFour from '$lib/assets/images/slide_04.jpg';
-	// @ts-ignore
 	import slideFive from '$lib/assets/images/services.jpg';
-	// @ts-ignore
 	import slideSix from '$lib/assets/images/services_01.jpg';
 
 	//   let images = [slideOne, slideTwo, slideThree, slideFour];
