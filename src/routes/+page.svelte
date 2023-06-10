@@ -775,7 +775,7 @@
 		<div class="relative flex justify-center items-start space-y-7 flex-col w-3/5 h-full">
 			<h4 class="text-sm font-bold text-saftech-white w-[500px]">ABOOUT OUR COMPANY</h4>
 			<h1 class="text-5xl font-bold lg:w-4/5 text-saftech-white w-[500px]">
-				Best IT-Solutions company near the world
+				Best IT-Solutions company near the world.
 			</h1>
 			<h2 class="text-sm lg:text-base lg:w-4/5 text-saftech-white w-[400px]">
 				There are locations in the United states of america as well as ationally. The organization
