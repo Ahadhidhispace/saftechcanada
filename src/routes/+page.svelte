@@ -84,7 +84,7 @@
                 by its promoters that was incepted.`,
 			url: '/solution/slug'
 		}
-	]
+	];
 
 	let team = [
 		{
