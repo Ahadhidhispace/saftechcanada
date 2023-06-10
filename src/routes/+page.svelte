@@ -421,7 +421,6 @@ import { Container } from "postcss"
 	
 </script>
 {#if showLeagacyCarousel}
-	
 	<Carousel />
 {/if}
 
