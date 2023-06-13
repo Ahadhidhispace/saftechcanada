@@ -1,8 +1,8 @@
 <script>
 	// @ts-nocheck
 	import { page } from '$app/stores'
-	export let data
-	console.log(data.optimize)
+	//export let data
+	console.log($page.data.optimize)
 
 	import '../app.css'
 	import { onMount } from 'svelte'
@@ -17,7 +17,7 @@
 	import addressPhone from '$lib/assets/icons/icons8_ringer_volume.svg'
 	import addressTime from '$lib/assets/icons/icons8_technical_support.svg'
 
-	let whiteBackgroundOptimized = JSON.parse(data.optimize) // JSON.parse($page.url.searchParams.get('nav_background_optimize')) || false
+	let whiteBackgroundOptimized = JSON.parse($page.data.optimize) // JSON.parse($page.url.searchParams.get('nav_background_optimize')) || false
 
 	export let applyTransparency = false
 	export let showingSubRoutes = false
@@ -44,7 +44,7 @@
 	$: navBgOptimized = applyTransparency && whiteBackgroundOptimized
 
 	// @ts-ignore
-	$: console.log(navBgOptimized)
+	//$: console.log(navBgOptimized)
 
 	/**
 	 * @param {string} pathName
@@ -185,277 +185,7 @@
 
 <svelte:window bind:scrollY="{y}" />
 
-<nav
-	on:mouseenter={() => {
-		showingSubNav = true
-	}}
-	on:mouseleave={() => {
-		showingSubNav = false
-	}}
-	id="top" class=" fixed z-40 bg-deep-blue backdrop-blur mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full py-4 transition-all duration-500 ease-in-out">
-	
-	<div id="main-menu"
-		class="flex justify-between items-center"	
-	>
-		<section class=" flex {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
-			<a href="/">
-			<svg
-					class=" h-10 w-auto"
-					xmlns="http://www.w3.org/2000/svg"
-					width="320.809"
-					height="73.18"
-					viewBox="0 0 320.809 73.18"
-					><g transform="translate(3.543 3.546)"
-						><path
-							d="M654,449.333s-2.734-20.311,9.333-37.333C675.066,395.448,706,383.333,734,408"
-							transform="translate(-653.734 -393.979)"
-							fill="none"
-							stroke="#f5f5f5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="7"></path><path
-							d="M653.9,431.979s-1.58-14.314,5.837-26c7.211-11.363,27.333-18,43.333-6"
-							transform="translate(-638.135 -377.959)"
-							fill="none"
-							stroke="#f5f5f5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="7"></path><path
-							d="M653.816,417.608a21.035,21.035,0,0,1,0-14.667c2.93-7.3,12.863-10.667,19.333-8.667"
-							transform="translate(-622.216 -362.921)"
-							fill="none"
-							stroke="#f5f5f5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="7"></path><path
-							d="M726.224,436.715s-16.489-.4-18.222,6.618,0,18,18.222,16.667,32.17,3.431,32.845-23.285c-2-13.069-12.615-17.312-22.047-14.715C726.534,424.885,726.224,436.715,726.224,436.715Z"
-							transform="translate(-653.734 -393.979)"
-							fill="none"
-							stroke="#f5f5f5"
-							stroke-linejoin="round"
-							stroke-width="7"></path><g transform="translate(-416.734 -291)"
-							><g transform="translate(542 309)"
-								><text
-									transform="translate(0 24)"
-									fill="#f5f5f5"
-									font-size="23"
-									font-family="Poppins-Bold, Poppins"
-									font-weight="700"><tspan x="0" y="0">Saftech Canada</tspan></text
-								><text
-									transform="translate(2 44)"
-									fill="#f5f5f5"
-									font-size="13"
-									font-family="Poppins-Light, Poppins"
-									font-weight="300"><tspan x="0" y="0">More that a tech company</tspan></text
-								></g
-							></g
-						></g
-					></svg
-				>
-		</a>
-		</section>
-		<section class="h-full flex justify-center items-center {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
-			<div class="h-full">
-				<ul class="h-full flex space-x-10">
-					{#each Object.keys(links) as navItem, index}
-						<li
-						on:mouseenter={() => {
-                selectedElement = document.querySelector(`#${navItem}`)
-                // console.log(selectedElement)
-                console.log(Object.entries(links)[index][1].subLinks)
-				let menuSubLinks = Object.entries(links)[index][1].subLinks
 
-                selected = selectedElement?.id
-                selectedFeatureId = selectedElement?.id
-
-                selectedElement?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                })}}
-						
-						id="" class="font-bold text-lg text-saftech-white">{ Object.entries(links)[index][1].displayText }</li> 
-					{/each}
-				</ul>
-			</div>	
-		</section>
-		<section class="{showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
-			<div
-				class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
-			>
-				<button
-					type="button"
-					class="rounded-md p-2 mr-6 font-bold text-xs hover:text-blue-700/60 bg-white/5 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-100 transition-all duration-500 ease-out"
-				>
-					<span class="sr-only">search</span>
-					<svg class="fill-saftech-white " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="20" height="20">
-						<path d="M13 3C7.4889971 3 3 7.4889971 3 13C3 18.511003 7.4889971 23 13 23C15.396508 23 17.597385 22.148986 19.322266 20.736328L25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969L20.736328 19.322266C22.148986 17.597385 23 15.396508 23 13C23 7.4889971 18.511003 3 13 3 z M 13 5C17.430123 5 21 8.5698774 21 13C21 17.430123 17.430123 21 13 21C8.5698774 21 5 17.430123 5 13C5 8.5698774 8.5698774 5 13 5 z" />
-					</svg>
-				</button>
-
-				<div class="flex items-center space-x-2">
-					<svg
-						class="flex items-center fill-saftech-white"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 50 50"
-						width="30"
-						height="30"
-					>
-						<path
-							d="M11.316406 3.007813C10.707031 3.046875 10.050781 3.265625 9.425781 3.703125C9.359375 3.746094 2.917969 8.414063 3 11.035156C3.238281 18.519531 10.523438 27.328125 16.59375 33.402344C22.664063 39.46875 31.46875 46.753906 38.984375 47L39.03125 47C41.632813 47 46.242188 40.636719 46.285156 40.574219C46.808594 39.828125 47.058594 38.972656 46.984375 38.164063C46.914063 37.363281 46.546875 36.675781 45.976563 36.277344C45.296875 35.800781 37.917969 30.894531 37.019531 30.34375C36.140625 29.804688 34.851563 29.890625 33.570313 30.566406C32.847656 30.949219 30.636719 32.207031 29.605469 32.796875C28.695313 32.160156 26.476563 30.472656 23 26.996094C19.519531 23.519531 17.832031 21.296875 17.199219 20.390625C17.789063 19.359375 19.046875 17.148438 19.425781 16.425781C20.113281 15.125 20.195313 13.824219 19.640625 12.957031C19.113281 12.117188 14.230469 4.71875 13.714844 4.003906C13.238281 3.34375 12.335938 2.933594 11.316406 3.007813 Z M 25 5L25 7C34.925781 7 43 15.074219 43 25L45 25C45 13.972656 36.027344 5 25 5 Z M 25 10.542969L25 12.542969C31.871094 12.542969 37.457031 18.132813 37.457031 25L39.457031 25C39.457031 17.027344 32.972656 10.542969 25 10.542969 Z M 25 16L25 18C28.859375 18 32 21.140625 32 25L34 25C34 20.035156 29.960938 16 25 16Z"
-						></path>
-					</svg>
-					<h2 class=" relative before:absolute before:inset-0 before:-mt-4 -mb-3 before:indent-3 font-bold before:font-normal before:content-['Contact_info'] before:text-saftech-white/80 before:text-sm text-saftech-white">+1 2345 67890</h2>
-
-				</div>
-
-				<!-- Profile dropdown -->
-				<div class="relative ml-3">
-					<div>
-						<button
-							on:click="{toggleProfileView}"
-							type="button"
-							class="flex rounded-full bg-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-							id="user-menu-button"
-							aria-expanded="false"
-							aria-haspopup="true"
-						>
-							<span class="sr-only">Open user menu</span>
-
-							<!-- load user image if logged in and has profile -->
-							{#if !loggedIn}
-								<!-- <svg
-									fill=""
-									class=" fill-slate-100 h-8 w-8 rounded-full"
-									xmlns="http://www.w3.org/2000/svg"
-									width="72"
-									height="72"
-									viewBox="0 0 72 72"
-									><path
-										d="M38,2.008a35.995,35.995,0,0,0-2.724,71.887l.11.009c.864.062,1.733.1,2.614.1s1.749-.042,2.614-.1l.11-.009A35.995,35.995,0,0,0,38,2.008Zm0,3.13A32.865,32.865,0,0,1,61.463,61.021a32.033,32.033,0,0,0-8.315-3.858c-3.262-1.143-6.348-2.226-7.2-4.109-.135-1.607-.123-2.863-.11-4.3l0-.611a15.2,15.2,0,0,0,3.736-6.692c1.033-.551,2.3-1.872,2.675-5.035a4.847,4.847,0,0,0-.883-3.6c.845-2.9,2.527-10.254-.419-15a8.211,8.211,0,0,0-5.6-3.769c-1.388-1.719-4.008-2.657-7.511-2.657-5.323.1-9.226,1.729-11.592,4.845-2.791,3.678-3.318,9.236-1.571,16.527a4.832,4.832,0,0,0-.92,3.65c.38,3.163,1.639,4.484,2.672,5.035a15.175,15.175,0,0,0,3.736,6.7l0,.6c.013,1.448.025,2.706-.11,4.32-.858,1.888-3.958,2.983-7.236,4.139a32.7,32.7,0,0,0-8.275,3.837A32.867,32.867,0,0,1,38,5.138Z"
-										transform="translate(-2 -2.008)"></path></svg
-								> -->
-							{:else}
-								<img
-									class="h-8 w-8 rounded-full"
-									src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-									alt="user profile"
-								/>
-							{/if}
-						</button>
-					</div>
-
-								<!--
-						Dropdown menu, show/hide based on menu state.
-			
-						Entering: "transition ease-out duration-100"
-							From: "transform opacity-0 scale-95"
-							To: "transform opacity-100 scale-100"
-						Leaving: "transition ease-in duration-75"
-							From: "transform opacity-100 scale-100"
-							To: "transform opacity-0 scale-95"
-						-->
-					{#if viewingProfile}
-						<!-- and only if the user is logged in -->
-						<div
-							class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-							role="menu"
-							aria-orientation="vertical"
-							aria-labelledby="user-menu-button"
-							tabindex="-1"
-						>
-							<!-- Active: "bg-gray-100", Not Active: "" -->
-							<a
-								href="/user/profile"
-								class="block px-4 py-2 text-sm text-gray-700"
-								role="menuitem"
-								tabindex="-1"
-								id="user-menu-item-0">Your Profile</a
-							>
-							<a
-								href="/user/settings"
-								class="block px-4 py-2 text-sm text-gray-700"
-								role="menuitem"
-								tabindex="-1"
-								id="user-menu-item-1">Settings</a
-							>
-							<a
-								href="/auth/logout"
-								class="block px-4 py-2 text-sm text-gray-700"
-								role="menuitem"
-								tabindex="-1"
-								id="user-menu-item-2">Sign out</a
-							>
-						</div>
-					{/if}
-				</div>
-			</div>
-		</section>
-	</div>
-
-	{#if showingSubNav}
-		<div id="submenu-container" transition:slide={{ duration: 500, easing: quintOut, axis: 'y' }}
-			class="overflow-x-visible relative h-[400px] min-h-fit bg-dark-blue/0"
-		>
-				<svg class="z-0 absolute top-1/2 -translate-y-1/2 -right-[100px] p-3 px-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="400" height="400">
-                    <linearGradient id="9~1WB1iQjVkklyIWsQykta" x1="9.858" x2="38.142" y1="-27.858" y2="-56.142" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#75daff" />
-                        <stop offset="1" stop-color="#1ea2e4" />
-                    </linearGradient>
-                    <path fill="url(#9~1WB1iQjVkklyIWsQykta)" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z" />
-                    <radialGradient id="9~1WB1iQjVkklyIWsQyktb" cx="24" cy="-42" r="18.5" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" />
-                        <stop offset="1" stop-opacity="0" />
-                    </radialGradient>
-                    <circle cx="24" cy="24" r="18.5" fill="url(#9~1WB1iQjVkklyIWsQyktb)" />
-                    <radialGradient id="9~1WB1iQjVkklyIWsQyktc" cx="23.89" cy="-25.394" r="37.883" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#fafafb" />
-                        <stop offset="1" stop-color="#c8cdd1" />
-                    </radialGradient>
-                    <circle cx="24" cy="24" r="17" fill="url(#9~1WB1iQjVkklyIWsQyktc)" />
-                    <polygon fill="#b2bbc7" points="33.899,33.899 25.414,22.586 14.101,14.101 22.586,25.414" />
-                    <polygon fill="#b2bbc7" points="37.999,24 24,22 10.001,24 24,26" />
-                    <polygon fill="#b2bbc7" points="33.899,14.101 22.586,22.586 14.101,33.899 25.414,25.415" />
-                    <polygon fill="#b2bbc7" points="24,10.001 22,24 24,37.999 26,24.001" />
-                    <path fill="#f25022" d="M24,19.757v8.485l13.441-3.666c0.588-0.161,0.588-0.993,0-1.154L24,19.757z" />
-                    <path fill="#00a4ef" d="M24,28.243v-8.485l-13.441,3.666c-0.588,0.161-0.588,0.993,0,1.154L24,28.243z" />
-                    <path fill="#fff" d="M25.061,25.061c-0.586,0.586-1.535,0.586-2.121,0c-0.586-0.586-0.586-1.535,0-2.121 c0.586-0.586,1.536-0.585,2.121,0C25.647,23.526,25.647,24.474,25.061,25.061" />
-                </svg>
-			<div bind:this={subMenuContainer} class=" flex flex-col items-center w-full min-h-full max-h-full scrollbar-none p-5 snap-y overflow-auto">
-
-				<!-- use filter effect if slide is active black&white/color -->
-				{#each Object.keys(links) as feature, index}
-					<div on:mouseenter={(e) => {
-						selectedElement = e.currentTarget
-						// console.log(selectedElement)
-						selectedFeatureId = selectedElement.id
-						selected = selectedFeatureId
-
-						selectedElement?.scrollIntoView({
-							behavior: 'smooth',
-							block: 'nearest'
-						})
-					}} id="{ feature }" title="{feature}" class="backdrop-blur-lg px-20 overflow-hidden w-full max-h-400px[] min-h-[400px] rounded-xl text-2xl { feature === selectedFeatureId ? ' bg-saftech-white/5 text-saftech-white opacity-100':'opacity-5 bg-transparent text-saftech-black' } snap-center snap-mandatory origin-center transition-all duration-300 ease-out ">
-						<div class="w-fit max-h-400px[] min-h-[400px] grid grid-cols-2 place-content-center place-items-center gap-4">
-							{#each Object.entries(links)[index][1].subLinks  as navSubLink, index}
-								<div class=" group hover:bg-saftech-white cursor-pointer rounded-lg px-10 py-5 h-fit w-fit min-w-[300px] transition-all duration-300 ease-out">
-									<p class="group-hover:text-normal-blue text-xl font-normal text-saftech-white transition-all duration-300 ease-out">{navSubLink.text}</p>
-									<p class="group-hover:text-normal-blue text-sm font-normal text-saftech-white/60 transition-all duration-300 ease-out">{navSubLink.shortText}</p>
-								</div> 
-							{/each}
-						</div>
-						
-						
-						<!-- <div class="flex items-end absolute bottom-0 left-0 m-2 p-5 h-fit { `feature${index}` === selectedFeatureId ? 'w-1/2 bg-black':'w-fit min-full bg-white' }  rounded-xl  transition-all duration-500 ease-out ">
-							<h2 class=" font-bold text-2xl w-[10ch] { `feature${index}` === selectedFeatureId ? 'text-saftech-white':'text-black' }  transition-all duration-500 ease-out ">{feature.text}</h2>
-						</div> -->
-					</div>
-				{/each}
-
-			</div>
-		</div>
-	{/if}
-	
-</nav>
 
 <!-- bg optimize previous background color bg-saftech-black/50 -->
 {#if useOld}
@@ -987,6 +717,281 @@
 	</div>
 
 	<!-- {/if} -->
+
+{:else}
+
+	<nav
+	on:mouseenter={() => {
+		showingSubNav = true
+	}}
+	on:mouseleave={() => {
+		showingSubNav = false
+	}}
+	id="top" class=" fixed z-40 bg-deep-blue backdrop-blur mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full py-4 transition-all duration-500 ease-in-out">
+	
+	<div id="main-menu"
+		class="flex justify-between items-center"	
+	>
+		<section class=" flex {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
+			<a href="/">
+			<svg
+					class=" h-10 w-auto"
+					xmlns="http://www.w3.org/2000/svg"
+					width="320.809"
+					height="73.18"
+					viewBox="0 0 320.809 73.18"
+					><g transform="translate(3.543 3.546)"
+						><path
+							d="M654,449.333s-2.734-20.311,9.333-37.333C675.066,395.448,706,383.333,734,408"
+							transform="translate(-653.734 -393.979)"
+							fill="none"
+							stroke="#f5f5f5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="7"></path><path
+							d="M653.9,431.979s-1.58-14.314,5.837-26c7.211-11.363,27.333-18,43.333-6"
+							transform="translate(-638.135 -377.959)"
+							fill="none"
+							stroke="#f5f5f5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="7"></path><path
+							d="M653.816,417.608a21.035,21.035,0,0,1,0-14.667c2.93-7.3,12.863-10.667,19.333-8.667"
+							transform="translate(-622.216 -362.921)"
+							fill="none"
+							stroke="#f5f5f5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="7"></path><path
+							d="M726.224,436.715s-16.489-.4-18.222,6.618,0,18,18.222,16.667,32.17,3.431,32.845-23.285c-2-13.069-12.615-17.312-22.047-14.715C726.534,424.885,726.224,436.715,726.224,436.715Z"
+							transform="translate(-653.734 -393.979)"
+							fill="none"
+							stroke="#f5f5f5"
+							stroke-linejoin="round"
+							stroke-width="7"></path><g transform="translate(-416.734 -291)"
+							><g transform="translate(542 309)"
+								><text
+									transform="translate(0 24)"
+									fill="#f5f5f5"
+									font-size="23"
+									font-family="Poppins-Bold, Poppins"
+									font-weight="700"><tspan x="0" y="0">Saftech Canada</tspan></text
+								><text
+									transform="translate(2 44)"
+									fill="#f5f5f5"
+									font-size="13"
+									font-family="Poppins-Light, Poppins"
+									font-weight="300"><tspan x="0" y="0">More that a tech company</tspan></text
+								></g
+							></g
+						></g
+					></svg
+				>
+		</a>
+		</section>
+		<section class="h-full flex justify-center items-center {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
+			<div class="h-full">
+				<ul class="h-full flex space-x-10">
+					{#each Object.keys(links) as navItem, index}
+						<li
+						on:mouseenter={() => {
+                selectedElement = document.querySelector(`#${navItem}`)
+                // console.log(selectedElement)
+                console.log(Object.entries(links)[index][1].subLinks)
+				let menuSubLinks = Object.entries(links)[index][1].subLinks
+
+                selected = selectedElement?.id
+                selectedFeatureId = selectedElement?.id
+
+                selectedElement?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                })}}
+						
+						id="" class="font-bold text-lg text-saftech-white">{ Object.entries(links)[index][1].displayText }</li> 
+					{/each}
+				</ul>
+			</div>	
+		</section>
+		<section class="{showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
+			<div
+				class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+			>
+				<button
+					type="button"
+					class="rounded-md p-2 mr-6 font-bold text-xs hover:text-blue-700/60 bg-white/5 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-100 transition-all duration-500 ease-out"
+				>
+					<span class="sr-only">search</span>
+					<svg class="fill-saftech-white " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="20" height="20">
+						<path d="M13 3C7.4889971 3 3 7.4889971 3 13C3 18.511003 7.4889971 23 13 23C15.396508 23 17.597385 22.148986 19.322266 20.736328L25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969L20.736328 19.322266C22.148986 17.597385 23 15.396508 23 13C23 7.4889971 18.511003 3 13 3 z M 13 5C17.430123 5 21 8.5698774 21 13C21 17.430123 17.430123 21 13 21C8.5698774 21 5 17.430123 5 13C5 8.5698774 8.5698774 5 13 5 z" />
+					</svg>
+				</button>
+
+				<div class="flex items-center space-x-2">
+					<svg
+						class="flex items-center fill-saftech-white"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 50 50"
+						width="30"
+						height="30"
+					>
+						<path
+							d="M11.316406 3.007813C10.707031 3.046875 10.050781 3.265625 9.425781 3.703125C9.359375 3.746094 2.917969 8.414063 3 11.035156C3.238281 18.519531 10.523438 27.328125 16.59375 33.402344C22.664063 39.46875 31.46875 46.753906 38.984375 47L39.03125 47C41.632813 47 46.242188 40.636719 46.285156 40.574219C46.808594 39.828125 47.058594 38.972656 46.984375 38.164063C46.914063 37.363281 46.546875 36.675781 45.976563 36.277344C45.296875 35.800781 37.917969 30.894531 37.019531 30.34375C36.140625 29.804688 34.851563 29.890625 33.570313 30.566406C32.847656 30.949219 30.636719 32.207031 29.605469 32.796875C28.695313 32.160156 26.476563 30.472656 23 26.996094C19.519531 23.519531 17.832031 21.296875 17.199219 20.390625C17.789063 19.359375 19.046875 17.148438 19.425781 16.425781C20.113281 15.125 20.195313 13.824219 19.640625 12.957031C19.113281 12.117188 14.230469 4.71875 13.714844 4.003906C13.238281 3.34375 12.335938 2.933594 11.316406 3.007813 Z M 25 5L25 7C34.925781 7 43 15.074219 43 25L45 25C45 13.972656 36.027344 5 25 5 Z M 25 10.542969L25 12.542969C31.871094 12.542969 37.457031 18.132813 37.457031 25L39.457031 25C39.457031 17.027344 32.972656 10.542969 25 10.542969 Z M 25 16L25 18C28.859375 18 32 21.140625 32 25L34 25C34 20.035156 29.960938 16 25 16Z"
+						></path>
+					</svg>
+					<h2 class=" relative before:absolute before:inset-0 before:-mt-4 -mb-3 before:indent-3 font-bold before:font-normal before:content-['Contact_info'] before:text-saftech-white/80 before:text-sm text-saftech-white">+1 2345 67890</h2>
+
+				</div>
+
+				<!-- Profile dropdown -->
+				<div class="relative ml-3">
+					<div>
+						<button
+							on:click="{toggleProfileView}"
+							type="button"
+							class="flex rounded-full bg-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+							id="user-menu-button"
+							aria-expanded="false"
+							aria-haspopup="true"
+						>
+							<span class="sr-only">Open user menu</span>
+
+							<!-- load user image if logged in and has profile -->
+							{#if !loggedIn}
+								<!-- <svg
+									fill=""
+									class=" fill-slate-100 h-8 w-8 rounded-full"
+									xmlns="http://www.w3.org/2000/svg"
+									width="72"
+									height="72"
+									viewBox="0 0 72 72"
+									><path
+										d="M38,2.008a35.995,35.995,0,0,0-2.724,71.887l.11.009c.864.062,1.733.1,2.614.1s1.749-.042,2.614-.1l.11-.009A35.995,35.995,0,0,0,38,2.008Zm0,3.13A32.865,32.865,0,0,1,61.463,61.021a32.033,32.033,0,0,0-8.315-3.858c-3.262-1.143-6.348-2.226-7.2-4.109-.135-1.607-.123-2.863-.11-4.3l0-.611a15.2,15.2,0,0,0,3.736-6.692c1.033-.551,2.3-1.872,2.675-5.035a4.847,4.847,0,0,0-.883-3.6c.845-2.9,2.527-10.254-.419-15a8.211,8.211,0,0,0-5.6-3.769c-1.388-1.719-4.008-2.657-7.511-2.657-5.323.1-9.226,1.729-11.592,4.845-2.791,3.678-3.318,9.236-1.571,16.527a4.832,4.832,0,0,0-.92,3.65c.38,3.163,1.639,4.484,2.672,5.035a15.175,15.175,0,0,0,3.736,6.7l0,.6c.013,1.448.025,2.706-.11,4.32-.858,1.888-3.958,2.983-7.236,4.139a32.7,32.7,0,0,0-8.275,3.837A32.867,32.867,0,0,1,38,5.138Z"
+										transform="translate(-2 -2.008)"></path></svg
+								> -->
+							{:else}
+								<img
+									class="h-8 w-8 rounded-full"
+									src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+									alt="user profile"
+								/>
+							{/if}
+						</button>
+					</div>
+
+								<!--
+						Dropdown menu, show/hide based on menu state.
+			
+						Entering: "transition ease-out duration-100"
+							From: "transform opacity-0 scale-95"
+							To: "transform opacity-100 scale-100"
+						Leaving: "transition ease-in duration-75"
+							From: "transform opacity-100 scale-100"
+							To: "transform opacity-0 scale-95"
+						-->
+					{#if viewingProfile}
+						<!-- and only if the user is logged in -->
+						<div
+							class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+							role="menu"
+							aria-orientation="vertical"
+							aria-labelledby="user-menu-button"
+							tabindex="-1"
+						>
+							<!-- Active: "bg-gray-100", Not Active: "" -->
+							<a
+								href="/user/profile"
+								class="block px-4 py-2 text-sm text-gray-700"
+								role="menuitem"
+								tabindex="-1"
+								id="user-menu-item-0">Your Profile</a
+							>
+							<a
+								href="/user/settings"
+								class="block px-4 py-2 text-sm text-gray-700"
+								role="menuitem"
+								tabindex="-1"
+								id="user-menu-item-1">Settings</a
+							>
+							<a
+								href="/auth/logout"
+								class="block px-4 py-2 text-sm text-gray-700"
+								role="menuitem"
+								tabindex="-1"
+								id="user-menu-item-2">Sign out</a
+							>
+						</div>
+					{/if}
+				</div>
+			</div>
+		</section>
+	</div>
+
+	{#if showingSubNav}
+		<div id="submenu-container" transition:slide={{ duration: 500, easing: quintOut, axis: 'y' }}
+			class="overflow-x-visible relative h-[400px] min-h-fit bg-dark-blue/0"
+		>
+				<svg class="z-0 absolute top-1/2 -translate-y-1/2 -right-[100px] p-3 px-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="400" height="400">
+                    <linearGradient id="9~1WB1iQjVkklyIWsQykta" x1="9.858" x2="38.142" y1="-27.858" y2="-56.142" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#75daff" />
+                        <stop offset="1" stop-color="#1ea2e4" />
+                    </linearGradient>
+                    <path fill="url(#9~1WB1iQjVkklyIWsQykta)" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z" />
+                    <radialGradient id="9~1WB1iQjVkklyIWsQyktb" cx="24" cy="-42" r="18.5" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" />
+                        <stop offset="1" stop-opacity="0" />
+                    </radialGradient>
+                    <circle cx="24" cy="24" r="18.5" fill="url(#9~1WB1iQjVkklyIWsQyktb)" />
+                    <radialGradient id="9~1WB1iQjVkklyIWsQyktc" cx="23.89" cy="-25.394" r="37.883" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#fafafb" />
+                        <stop offset="1" stop-color="#c8cdd1" />
+                    </radialGradient>
+                    <circle cx="24" cy="24" r="17" fill="url(#9~1WB1iQjVkklyIWsQyktc)" />
+                    <polygon fill="#b2bbc7" points="33.899,33.899 25.414,22.586 14.101,14.101 22.586,25.414" />
+                    <polygon fill="#b2bbc7" points="37.999,24 24,22 10.001,24 24,26" />
+                    <polygon fill="#b2bbc7" points="33.899,14.101 22.586,22.586 14.101,33.899 25.414,25.415" />
+                    <polygon fill="#b2bbc7" points="24,10.001 22,24 24,37.999 26,24.001" />
+                    <path fill="#f25022" d="M24,19.757v8.485l13.441-3.666c0.588-0.161,0.588-0.993,0-1.154L24,19.757z" />
+                    <path fill="#00a4ef" d="M24,28.243v-8.485l-13.441,3.666c-0.588,0.161-0.588,0.993,0,1.154L24,28.243z" />
+                    <path fill="#fff" d="M25.061,25.061c-0.586,0.586-1.535,0.586-2.121,0c-0.586-0.586-0.586-1.535,0-2.121 c0.586-0.586,1.536-0.585,2.121,0C25.647,23.526,25.647,24.474,25.061,25.061" />
+                </svg>
+			<div bind:this={subMenuContainer} class=" flex flex-col items-center w-full min-h-full max-h-full scrollbar-none p-5 snap-y overflow-auto">
+
+				<!-- use filter effect if slide is active black&white/color -->
+				{#each Object.keys(links) as feature, index}
+					<div on:mouseenter={(e) => {
+						selectedElement = e.currentTarget
+						// console.log(selectedElement)
+						selectedFeatureId = selectedElement.id
+						selected = selectedFeatureId
+
+						selectedElement?.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest'
+						})
+					}} id="{ feature }" title="{feature}" class="backdrop-blur-lg px-20 overflow-hidden w-full max-h-400px[] min-h-[400px] rounded-xl text-2xl { feature === selectedFeatureId ? ' bg-saftech-white/5 text-saftech-white opacity-100':'opacity-5 bg-transparent text-saftech-black' } snap-center snap-mandatory origin-center transition-all duration-300 ease-out ">
+						<div class="w-fit max-h-400px[] min-h-[400px] grid grid-cols-2 place-content-center place-items-center gap-4">
+							{#each Object.entries(links)[index][1].subLinks  as navSubLink, index}
+								<div class=" group hover:bg-saftech-white cursor-pointer rounded-lg px-10 py-5 h-fit w-fit min-w-[300px] transition-all duration-300 ease-out">
+									<p class="group-hover:text-normal-blue text-xl font-normal text-saftech-white transition-all duration-300 ease-out">{navSubLink.text}</p>
+									<p class="group-hover:text-normal-blue text-sm font-normal text-saftech-white/60 transition-all duration-300 ease-out">{navSubLink.shortText}</p>
+								</div> 
+							{/each}
+						</div>
+						
+						
+						<!-- <div class="flex items-end absolute bottom-0 left-0 m-2 p-5 h-fit { `feature${index}` === selectedFeatureId ? 'w-1/2 bg-black':'w-fit min-full bg-white' }  rounded-xl  transition-all duration-500 ease-out ">
+							<h2 class=" font-bold text-2xl w-[10ch] { `feature${index}` === selectedFeatureId ? 'text-saftech-white':'text-black' }  transition-all duration-500 ease-out ">{feature.text}</h2>
+						</div> -->
+					</div>
+				{/each}
+
+			</div>
+		</div>
+	{/if}
+	
+</nav>
+
 {/if}
 
 

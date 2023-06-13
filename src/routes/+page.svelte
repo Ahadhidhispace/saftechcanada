@@ -1,4 +1,6 @@
 <script>
+	export const prerender = true;
+
 	import { page } from '$app/stores'
 	export let data
 
@@ -303,8 +305,6 @@
 
 	// The begining of requested section
 	// ####################################################################################################
-
-	import { Container } from 'postcss'
 
 	// @ts-ignore
 	import heroBackground from '$lib/assets/images/Hero section bg.jpeg'
