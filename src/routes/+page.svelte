@@ -304,16 +304,24 @@
 	let showLeagacyCarousel = false
 
 	// The begining of requested section
-	// ####################################################################################################
+	// #################################################################################################### 
 
 	// @ts-ignore
-	import heroBackground from '$lib/assets/images/Hero section bg.jpeg'
+	// import heroBackground from '$lib/assets/images/Hero section bg.jpeg'
+	import heroBackground from '$lib/assets/images/iStock-2-girl-hero.png'
 
-	import slideOne from '$lib/assets/images/1_team_working.jpg'
-	import slideTwo from '$lib/assets/images/2_saftech_office.jpg'
-	import slideThree from '$lib/assets/images/3_safari_family.jpg'
-	import slideFour from '$lib/assets/images/4_singapore_of_africa.jpg'
-	import slideFive from '$lib/assets/images/5_shema_student_graduation.jpg'
+	// import slideOne from '$lib/assets/images/1_team_working.jpg'
+	// import slideTwo from '$lib/assets/images/2_saftech_office.jpg'
+	// import slideThree from '$lib/assets/images/3_safari_family.jpg'
+	// import slideFour from '$lib/assets/images/4_singapore_of_africa.jpg'
+	// import slideFive from '$lib/assets/images/5_shema_student_graduation.jpg'
+	
+	import slideOne from '$lib/assets/images/iStock-1-opt.jpg'
+	import slideTwo from '$lib/assets/images/iStock-2-opt.jpg'
+	import slideThree from '$lib/assets/images/iStock-3-opt.jpg'
+	import slideFour from '$lib/assets/images/iStock-4-opt.jpg'
+	import slideFive from '$lib/assets/images/PHOTO-1-opt.jpg'
+
 	import { onMount } from 'svelte'
 
 	let showHeroCarousel = false
@@ -423,12 +431,13 @@
 
 <!-- brand new and requested sections -->
 <section class="relative overflow-hidden min-w-full bg-saftech-white mt-[70px]">
+	<!-- heroBackground -->
 	<div
 		style="background-image: url('{heroBackground}')"
-		class="w-full h-[450px] bg-center bg-no-repeat bg-cover"
+		class="w-full h-[450px] bg-right bg-no-repeat bg-contain"
 	>
 		<h1
-			class="flex flex-col justify-center items-start space-y-5 h-full font-bold text-6xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full"
+			class="scale-90 flex flex-col justify-center items-start space-y-5 h-full font-bold text-6xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full"
 		>
 			<span
 				class="text-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text -mt-10"
