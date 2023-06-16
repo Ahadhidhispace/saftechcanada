@@ -51,7 +51,7 @@
 	import mrWilson from '$lib/assets/images/team_mr_wilson.jpg'
 	import otileBrown from '$lib/assets/images/team_otile_brown.jpg'
 
-	//import news images
+	// import news images
 
 	let solutions = [
 		{
@@ -425,6 +425,12 @@
 	// ####################################################################################################
 </script>
 
+<style>
+	* {
+		font-family: 'Poppins';
+	}
+</style>
+
 {#if showLeagacyCarousel}
 	<Carousel />
 {/if}
@@ -434,27 +440,27 @@
 	<!-- heroBackground -->
 	<div
 		style="background-image: url('{heroBackground}')"
-		class="w-full h-[450px] bg-right bg-no-repeat bg-contain"
+		class="flex items-center w-full h-[450px] bg-right bg-no-repeat bg-contain"
 	>
 		<h1
-			class="scale-90 flex flex-col justify-center items-start space-y-5 h-full font-bold text-6xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full"
+			class="scale-90 flex flex-col justify-center items-center max-w-fit space-y-5 h-full font-bold text-6xl px-2 sm:px-6 lg:px-8 min-w-fit"
 		>
 			<span
-				class="text-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text -mt-10"
+				class=" font-['Persian_Sword_Demo'] text-6xl text-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text -mt-10"
 				>Outsource your BPO</span
 			>
 			<span class="flex justify-center items-stretch">
 				<span
-					class="text-7xl font-bold text-dark-blue border p-3 px-6 border-solid border-normal-blue"
-					>To</span
+					class="font-['Persian_Sword_Demo'] text-8xl font-bold text-transparent bg-gradient-to-b from-deep-blue to-normal-blue bg-clip-text "
+					>To East africa</span
 				>
-				<span
-					class="text-7xl font-bold text-saftech-white bg-gradient-to-r from-deep-blue to-dark-blue p-3 px-8"
+				<!-- <span
+					class="font-['Persian_Sword_Demo'] text-7xl font-bold text-saftech-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text pl-2"
 					>East Africa</span
-				>
+				> -->
 			</span>
-			<span class="font-semibold text-4xl">Save money. Do Good.</span>
-			<!-- <span class="" >Do Good.</span> -->
+			<span class="font-['Persian_Sword_Demo'] font-normal text-lg text-transparent bg-gradient-to-b from-deep-blue to-normal-blue bg-clip-text indent-5 leading-loose">Save money<span class="inline-flex items-center w-2 h-2 max-h-2 mx-4 -mt-2 bg-saftech-gray rounded-full overflow-hidden">&nbsp;</span>Do Good</span>
+			
 		</h1>
 	</div>
 
@@ -561,7 +567,10 @@
 	<div
 		class="flex items-center flex-col py-10 mb-10 space-y-12 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full"
 	>
-		<h2 class="py-10 font-semibold text-6xl text-saftech-white">More Than A Tech Company</h2>
+		<h2 class="flex flex-col space-y-2 items-center justify-center  py-10 font-semibold">
+			<span class="!font-['Korean_Calligraphy'] text-6xl text-transparent bg-gradient-to-b from-saftech-white to-white bg-clip-text">More Than a</span>
+			<span class="!font-['Korean_Calligraphy'] text-9xl text-transparent bg-gradient-to-b from-saftech-white to-white bg-clip-text">tech company</span>
+		</h2>
 		<div class="flex justify-between items-center space-x-5 text-saftech-white">
 			<div class="w-fit flex items-center bg-saftech-white/5 rounded-lg p-6 space-x-3">
 				<svg
@@ -1082,7 +1091,7 @@
 <!-- The end of services section -->
 
 <!-- Team section -->
-<section class="w-full h-fit bg-saftech-white py-16">
+<section class="sr-only w-full h-fit bg-saftech-white py-16">
 	<div
 		class="w-full h-full flex flex-col justify-center items-start rounded-md bg-saftech-gray/10 py-10 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
 	>
@@ -1229,7 +1238,7 @@
 <!-- The end of Testimonials section -->
 
 <!-- Global Footprint section -->
-<section class="w-full h-fit bg-saftech-black py-16">
+<section class="w-full h-fit bg-gradient-to-b from-deep-blue to-dark-blue py-16">
 	<div
 		class="w-full h-full flex justify-between items-center rounded-md mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
 	>
@@ -1389,3 +1398,5 @@
 	</div>
 </section>
 <!-- The end of The FAQs section -->
+
+
