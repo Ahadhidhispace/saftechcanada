@@ -746,10 +746,10 @@
 	on:mouseleave={() => {
 		showingSubNav = false
 	}}
-	id="top" class=" overflow-hidden fixed z-40 bg-deep-blue backdrop-blur mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full py-4 transition-all duration-500 ease-in-out">
+	id="top" class=" fixed z-40 shadow-2xl {showingSubNav ? 'bg-gradient-to-b from-deep-blue to-normal-blue':'bg-deep-blue'}  backdrop-blur mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full py-4 transition-all duration-500 ease-in-out">
 	
 	<div id="main-menu"
-		class=" flex justify-between items-center"	
+		class=" overflow-hidden flex justify-between items-center"	
 	>
 		<section class=" flex {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
 			<a href="/">
@@ -957,7 +957,7 @@
 			class="overflow-x-visible relative h-[400px] min-h-fit bg-dark-blue/0"
 		>
 		{#key featuredImage }
-			<img transition:fade={{duration: 300, delay: 0}} src="{featuredImage}" alt="featured image" class="z-0 absolute top-1/2 -translate-y-1/2 -right-[10px] p-3 px-6 w-[400px] h-[400px]" />
+			<!-- <img transition:fade={{duration: 300, delay: 0}} src="{featuredImage}" alt="featured image" class="z-0 absolute top-1/2 -translate-y-1/2 -right-[10px] p-3 px-6 w-[400px] h-[400px]" /> -->
 		{/key}
 			<div bind:this={subMenuContainer} class=" flex flex-col items-center w-full min-h-full max-h-full scrollbar-none p-5 snap-y overflow-auto">
 
@@ -975,7 +975,7 @@
 							behavior: 'smooth',
 							block: 'nearest'
 						})
-					}} id="{ feature }" title="{feature}" class="backdrop-blur-lg px-20 overflow-hidden w-full max-h-400px[] min-h-[400px] rounded-xl text-2xl { feature === selectedFeatureId ? ' bg-saftech-white/5 text-saftech-white opacity-100':'opacity-5 bg-transparent text-saftech-black' } snap-center snap-mandatory origin-center transition-all duration-300 ease-out ">
+					}} id="{ feature }" title="{feature}" class="backdrop-blur-lg px-20 overflow-hidden w-full max-h-400px[] min-h-[400px] rounded-xl text-2xl { feature === selectedFeatureId ? ' bg-transparent text-saftech-white opacity-100':'opacity-5 bg-transparent text-saftech-black' } snap-center snap-mandatory origin-center transition-all duration-300 ease-out ">
 						<div class="w-fit max-h-400px[] min-h-[400px] grid grid-cols-2 place-content-center place-items-center gap-4">
 							{#each Object.entries(links)[index][1].subLinks  as navSubLink, index}
 								<div class=" group hover:bg-saftech-white cursor-pointer rounded-lg px-10 py-5 h-fit w-fit min-w-[300px] transition-all duration-300 ease-out">
