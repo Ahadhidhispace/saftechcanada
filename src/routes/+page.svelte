@@ -427,7 +427,7 @@
 
 <style>
 	* {
-		font-family: 'Poppins';
+		font-family: 'poppins';
 	}
 </style>
 
@@ -446,20 +446,20 @@
 			class="scale-90 flex flex-col justify-center items-center max-w-fit space-y-5 h-full font-bold text-6xl px-2 sm:px-6 lg:px-8 min-w-fit"
 		>
 			<span
-				class=" font-['Persian_Sword_Demo'] text-6xl text-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text -mt-10"
+				class="  text-6xl text-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text -mt-10"
 				>Outsource your BPO</span
 			>
 			<span class="flex justify-center items-stretch">
 				<span
-					class="font-['Persian_Sword_Demo'] text-8xl font-bold text-transparent bg-gradient-to-b from-deep-blue to-normal-blue bg-clip-text "
+					class=" text-8xl font-bold text-transparent bg-gradient-to-b from-deep-blue to-normal-blue bg-clip-text "
 					>To East africa</span
 				>
 				<!-- <span
-					class="font-['Persian_Sword_Demo'] text-7xl font-bold text-saftech-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text pl-2"
+					class=" text-7xl font-bold text-saftech-transparent bg-gradient-to-r from-deep-blue to-dark-blue bg-clip-text pl-2"
 					>East Africa</span
 				> -->
 			</span>
-			<span class="font-['Persian_Sword_Demo'] font-normal text-lg text-transparent bg-gradient-to-b from-deep-blue to-normal-blue bg-clip-text indent-5 leading-loose">Save money<span class="inline-flex items-center w-2 h-2 max-h-2 mx-4 -mt-2 bg-saftech-gray rounded-full overflow-hidden">&nbsp;</span>Do Good</span>
+			<span class=" font-normal text-lg text-transparent bg-gradient-to-b from-deep-blue to-normal-blue bg-clip-text indent-5 leading-loose">Save money<span class="inline-flex items-center w-2 h-2 max-h-2 mx-4 -mt-2 bg-saftech-gray rounded-full overflow-hidden">&nbsp;</span>Do Good</span>
 			
 		</h1>
 	</div>
@@ -568,8 +568,8 @@
 		class="flex items-center flex-col py-10 mb-10 space-y-12 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full"
 	>
 		<h2 class="flex flex-col space-y-2 items-center justify-center  py-10 font-semibold">
-			<span class="!font-['Korean_Calligraphy'] text-6xl text-transparent bg-gradient-to-b from-saftech-white to-white bg-clip-text">More Than a</span>
-			<span class="!font-['Korean_Calligraphy'] text-9xl text-transparent bg-gradient-to-b from-saftech-white to-white bg-clip-text">tech company</span>
+			<span class="!font-[Korean] text-6xl text-transparent bg-gradient-to-b from-saftech-white to-white bg-clip-text">More Than a</span>
+			<span class="!font-[Korean] text-9xl text-transparent bg-gradient-to-b from-saftech-white to-white bg-clip-text">tech company</span>
 		</h2>
 		<div class="flex justify-between items-center space-x-5 text-saftech-white">
 			<div class="w-fit flex items-center bg-saftech-white/5 rounded-lg p-6 space-x-3">
@@ -601,7 +601,7 @@
 						d="M38,20.905c0,1.982-0.36,3.498-1.078,4.548c-0.718,1.05-1.744,1.575-3.076,1.575 c-1.319,0-2.339-0.51-3.057-1.531c-0.718-1.02-1.091-2.483-1.117-4.386v-2.707c0-1.975,0.357-3.487,1.073-4.533 c0.715-1.047,1.742-1.57,3.081-1.57c1.339,0,2.365,0.519,3.081,1.555c0.715,1.037,1.079,2.517,1.093,4.44V20.905z M35.204,18.001 c0-1.128-0.111-1.975-0.334-2.54c-0.223-0.564-0.571-0.847-1.043-0.847c-0.886,0-1.346,1.034-1.379,3.101v3.573 c0,1.155,0.114,2.015,0.34,2.579c0.226,0.565,0.579,0.846,1.058,0.846c0.453,0,0.789-0.264,1.009-0.792 c0.219-0.528,0.337-1.337,0.349-2.426V18.001z"
 					/>
 				</svg>
-				<h2 class="font-normal text-3xl w-[25ch]">
+				<h2 class="font-normal text-xl w-[25ch]">
 					See how we create <span class="text-normal-blue">360<sup>o</sup></span> value and help clients
 					become the next and best versions of themselves
 				</h2>
@@ -677,7 +677,7 @@
 						d="M25.061,25.061c-0.586,0.586-1.535,0.586-2.121,0c-0.586-0.586-0.586-1.535,0-2.121 c0.586-0.586,1.536-0.585,2.121,0C25.647,23.526,25.647,24.474,25.061,25.061"
 					/>
 				</svg>
-				<h2 class="font-normal text-3xl w-[20ch]">
+				<h2 class="font-normal text-xl w-[20ch]">
 					Find the low cost BPO that's right for you in <span class="text-normal-blue"
 						>East Africa</span
 					>

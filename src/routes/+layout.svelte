@@ -16,6 +16,13 @@
 	import addressLocation from '$lib/assets/icons/icons8_location_2.svg'
 	import addressPhone from '$lib/assets/icons/icons8_ringer_volume.svg'
 	import addressTime from '$lib/assets/icons/icons8_technical_support.svg'
+	
+	import navIcon1 from '$lib/assets/icons/icons8_services.svg'
+	import navIcon2 from '$lib/assets/icons/icons8_collaborating_in_circle.svg'
+	import navIcon3 from '$lib/assets/icons/icons8_about.svg'
+	import navIcon4 from '$lib/assets/icons/icons8_badge.svg'
+	import navIcon5 from '$lib/assets/icons/icons8_communication.svg'
+
 
 	let whiteBackgroundOptimized = JSON.parse($page.data.optimize) // JSON.parse($page.url.searchParams.get('nav_background_optimize')) || false
 
@@ -62,7 +69,9 @@
 	 * @type {any}
 	 */
 
-	onMount(() => {})
+	onMount(() => {
+		featuredImage  = navIcon1
+	})
 
 	const navLinks = [
 		{
@@ -147,25 +156,36 @@
 	let showChat = false
 
 	let links = {
-		'service': {active: false, displayText: 'Our Services', subLinks: [], icon: ''},
+		'service': {active: false, displayText: 'Our Services', subLinks: [
+			{text: 'Our Pertners', shortText: 'Browse our partners list', url: '/how-we-work/partners'},
+			{text: 'Videos', shortText: 'Watch the videos here', url: '/how-we-work/videos'},
+			{text: 'Our Pertners', shortText: 'Browse our partners list', url: '/how-we-work/partners'}
+		], icon: navIcon1},
 		'work': {active: false, displayText: 'How We Work', subLinks: [
 			{text: 'Our Pertners', shortText: 'Browse our partners list', url: '/how-we-work/partners'},
 			{text: 'Videos', shortText: 'Watch the videos here', url: '/how-we-work/videos'},
 			{text: 'Training', shortText: 'We\'ve trained 400 so far', url: '/how-we-work/training'}
-		], icon: ''},
+		], icon: navIcon2},
 		'about': {active: false, displayText: 'About Us', subLinks: [
 			{text: 'Our Story', shortText: 'Being told by', url: '/about-us/our-story'},
 			{text: 'Our Team', shortText: 'Being told by', url: '/about-us/our-team'},
 			{text: 'Our Mission', shortText: 'Being told by', url: '/about-us/our-mission'},
 			{text: 'Our Clients', shortText: 'Being told by', url: '/about-us/our-client'},
-			{text: 'Testimonials', shortText: 'What people say about us', url: '/about-us/testimonials'},
-		], icon: ''},
+			{text: 'Testimonials', shortText: 'What people say about us', url: '/about-us/testimonials'}
+		], icon: navIcon3},
 		'career': {active: false, displayText: 'Careers', subLinks: [
 			{text: 'Careers', shortText: 'Find a job', url: '/how-we-work/careers'},
 			{text: 'Management', shortText: 'Short description here', url: '/how-we-work/management'},
+			{text: 'Apply Here', shortText: 'Apply for the job here', url: '/how-we-work/apply'}
+		], icon: navIcon4},
+		'contact': {active: false, displayText: 'Contact Us', subLinks: [
+			{text: 'Careers', shortText: 'Find a job', url: '/how-we-work/careers'},
+			{text: 'Management', shortText: 'Short description here', url: '/how-we-work/management'},
 			{text: 'Apply Here', shortText: 'Apply for the job here', url: '/how-we-work/apply'},
-		], icon: ''},
-		'contact': {active: false, displayText: 'Contact Us', subLinks: [], icon: ''}
+			{text: 'Careers', shortText: 'Find a job', url: '/how-we-work/careers'},
+			{text: 'Management', shortText: 'Short description here', url: '/how-we-work/management'},
+			{text: 'Apply Here', shortText: 'Apply for the job here', url: '/how-we-work/apply'}
+		], icon: navIcon5}
 	}
 
 	    /**
@@ -179,6 +199,8 @@
     let selected
 
 	let menuSubLinks
+
+	let featuredImage  = navIcon1
 
 
 </script>
@@ -721,16 +743,13 @@
 {:else}
 
 	<nav
-	on:mouseenter={() => {
-		showingSubNav = true
-	}}
 	on:mouseleave={() => {
 		showingSubNav = false
 	}}
-	id="top" class=" fixed z-40 bg-deep-blue backdrop-blur mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full py-4 transition-all duration-500 ease-in-out">
+	id="top" class=" overflow-hidden fixed z-40 bg-deep-blue backdrop-blur mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 min-w-full py-4 transition-all duration-500 ease-in-out">
 	
 	<div id="main-menu"
-		class="flex justify-between items-center"	
+		class=" flex justify-between items-center"	
 	>
 		<section class=" flex {showingSubNav ? 'pb-6':'pb-0'} transition-all duration-500 ease-out">
 			<a href="/">
@@ -795,20 +814,26 @@
 					{#each Object.keys(links) as navItem, index}
 						<li
 						on:mouseenter={() => {
-                selectedElement = document.querySelector(`#${navItem}`)
-                // console.log(selectedElement)
-                console.log(Object.entries(links)[index][1].subLinks)
-				let menuSubLinks = Object.entries(links)[index][1].subLinks
 
-                selected = selectedElement?.id
-                selectedFeatureId = selectedElement?.id
+						featuredImage  = Object.entries(links)[index][1].icon
 
-                selectedElement?.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                })}}
+						showingSubNav = true
 						
-						id="" class="font-bold text-lg text-saftech-white">{ Object.entries(links)[index][1].displayText }</li> 
+						selectedElement = document.querySelector(`#${navItem}`)
+						// console.log(selectedElement)
+						console.log(Object.entries(links)[index][1].subLinks)
+						let menuSubLinks = Object.entries(links)[index][1].subLinks
+
+						selected = selectedElement?.id
+						selectedFeatureId = selectedElement?.id
+
+						selectedElement?.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest'
+						})
+						}}
+						
+						id="" class="relative font-bold text-lg text-saftech-white before:rounded-lg before:h-[500px] before:absolute before:-inset-2 before:bg-gradient-to-b  { navItem ===  selectedFeatureId ? 'before:from-normal-blue/10 before:via-normal-blue/50 before:to-normal-blue/50 before:opacity-100 px-4':' px-0 before:opacity-100 before:from-transparent before:via-transparent before:to-transparent'} transition-all duration-500 ease-out">{ Object.entries(links)[index][1].displayText }</li> 
 					{/each}
 				</ul>
 			</div>	
@@ -931,39 +956,20 @@
 		<div id="submenu-container" transition:slide={{ duration: 500, easing: quintOut, axis: 'y' }}
 			class="overflow-x-visible relative h-[400px] min-h-fit bg-dark-blue/0"
 		>
-				<svg class="z-0 absolute top-1/2 -translate-y-1/2 -right-[100px] p-3 px-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="400" height="400">
-                    <linearGradient id="9~1WB1iQjVkklyIWsQykta" x1="9.858" x2="38.142" y1="-27.858" y2="-56.142" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#75daff" />
-                        <stop offset="1" stop-color="#1ea2e4" />
-                    </linearGradient>
-                    <path fill="url(#9~1WB1iQjVkklyIWsQykta)" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z" />
-                    <radialGradient id="9~1WB1iQjVkklyIWsQyktb" cx="24" cy="-42" r="18.5" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" />
-                        <stop offset="1" stop-opacity="0" />
-                    </radialGradient>
-                    <circle cx="24" cy="24" r="18.5" fill="url(#9~1WB1iQjVkklyIWsQyktb)" />
-                    <radialGradient id="9~1WB1iQjVkklyIWsQyktc" cx="23.89" cy="-25.394" r="37.883" gradientTransform="matrix(1 0 0 -1 0 -18)" gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#fafafb" />
-                        <stop offset="1" stop-color="#c8cdd1" />
-                    </radialGradient>
-                    <circle cx="24" cy="24" r="17" fill="url(#9~1WB1iQjVkklyIWsQyktc)" />
-                    <polygon fill="#b2bbc7" points="33.899,33.899 25.414,22.586 14.101,14.101 22.586,25.414" />
-                    <polygon fill="#b2bbc7" points="37.999,24 24,22 10.001,24 24,26" />
-                    <polygon fill="#b2bbc7" points="33.899,14.101 22.586,22.586 14.101,33.899 25.414,25.415" />
-                    <polygon fill="#b2bbc7" points="24,10.001 22,24 24,37.999 26,24.001" />
-                    <path fill="#f25022" d="M24,19.757v8.485l13.441-3.666c0.588-0.161,0.588-0.993,0-1.154L24,19.757z" />
-                    <path fill="#00a4ef" d="M24,28.243v-8.485l-13.441,3.666c-0.588,0.161-0.588,0.993,0,1.154L24,28.243z" />
-                    <path fill="#fff" d="M25.061,25.061c-0.586,0.586-1.535,0.586-2.121,0c-0.586-0.586-0.586-1.535,0-2.121 c0.586-0.586,1.536-0.585,2.121,0C25.647,23.526,25.647,24.474,25.061,25.061" />
-                </svg>
+		{#key featuredImage }
+			<img transition:fade={{duration: 300, delay: 0}} src="{featuredImage}" alt="featured image" class="z-0 absolute top-1/2 -translate-y-1/2 -right-[10px] p-3 px-6 w-[400px] h-[400px]" />
+		{/key}
 			<div bind:this={subMenuContainer} class=" flex flex-col items-center w-full min-h-full max-h-full scrollbar-none p-5 snap-y overflow-auto">
 
 				<!-- use filter effect if slide is active black&white/color -->
 				{#each Object.keys(links) as feature, index}
 					<div on:mouseenter={(e) => {
+						featuredImage  = Object.entries(links)[index][1].icon
 						selectedElement = e.currentTarget
-						// console.log(selectedElement)
+						console.log(Object.entries(links)[index][1].icon)
 						selectedFeatureId = selectedElement.id
 						selected = selectedFeatureId
+						feature = selectedFeatureId
 
 						selectedElement?.scrollIntoView({
 							behavior: 'smooth',

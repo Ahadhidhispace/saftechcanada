@@ -3,6 +3,10 @@ module.exports = {
 	content: ['./src/**/*.{svg,html,js,svelte,ts}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+				'korean-calligraphy': ['Korean-Calligraphy']
+			},
 			colors: {
 				'deep-blue': '#001B48',
 				'dark-blue': '#02457A',
