@@ -3,9 +3,11 @@
 	import { error } from '@sveltejs/kit';
 
 	// $page.url.searchParams.set('nav_background_optimize', 'true')
+	// If you are on this page that means you\'ve got keys, good for you! However only verified email can make your key work. so make sure you verified it after registering your key.
 </script>
 
-<div class="bg-dark-blue w-sceen h-[70px] mx-auto mt-0" />
+
+<div class="bg-dark-blue/0 w-sceen h-[70px] mx-auto mt-0" />
 
 <div
 	class="flex flex-col justify-center space-y-6 items-center h-screen min-h-screen flex-nowrap overflow-hidden"

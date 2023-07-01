@@ -1,0 +1,199 @@
+<script>
+// @ts-nocheck
+
+// Select id
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select('id')
+
+
+// Select created_at
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select('created_at')
+
+
+// Select accesskey
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select('accesskey')
+
+
+// Select user_id
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select('user_id')
+
+
+
+
+
+// Read all rows
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select('*')
+
+// Read specific columns
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select('some_column,other_column')
+
+// Read foreign tables
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select(`
+    some_column,
+    other_table (
+      foreign_key
+    )
+  `)
+
+// With pagination
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select('*')
+  .range(0, 9)
+
+
+
+
+// With filtering
+
+let { data: accesskeys, error } = await supabase
+  .from('accesskeys')
+  .select("*")
+
+  // Filters
+  .eq('column', 'Equal to')
+  .gt('column', 'Greater than')
+  .lt('column', 'Less than')
+  .gte('column', 'Greater than or equal to')
+  .lte('column', 'Less than or equal to')
+  .like('column', '%CaseSensitive%')
+  .ilike('column', '%CaseInsensitive%')
+  .is('column', null)
+  .in('column', ['Array', 'Values'])
+  .neq('column', 'Not equal to')
+
+  // Arrays
+  .cs('array_column', ['array', 'contains'])
+  .cd('array_column', ['contained', 'by'])
+
+
+
+// Insert a row
+
+const { data, error } = await supabase
+  .from('accesskeys')
+  .insert([
+    { some_column: 'someValue', other_column: 'otherValue' },
+  ])
+
+// Insert many rows
+
+const { data, error } = await supabase
+  .from('accesskeys')
+  .insert([
+    { some_column: 'someValue' },
+    { some_column: 'otherValue' },
+  ])
+
+// Upsert matching rows
+
+const { data, error } = await supabase
+  .from('accesskeys')
+  .upsert({ some_column: 'someValue' }).select()
+
+
+
+// Update matching rows
+
+const { data, error } = await supabase
+  .from('accesskeys')
+  .update({ other_column: 'otherValue' })
+  .eq('some_column', 'someValue')
+
+
+
+
+// Delete matching rows
+
+const { data, error } = await supabase
+  .from('accesskeys')
+  .delete()
+  .eq('some_column', 'someValue')
+
+
+
+
+
+
+//  Subscribe to all events
+
+const accesskeys = supabase.channel('custom-all-channel')
+  .on(
+    'postgres_changes',
+    { event: '*', schema: 'public', table: 'accesskeys' },
+    (payload) => {
+      console.log('Change received!', payload)
+    }
+  )
+  .subscribe()
+
+// Subscribe to inserts
+
+const accesskeys = supabase.channel('custom-insert-channel')
+  .on(
+    'postgres_changes',
+    { event: 'INSERT', schema: 'public', table: 'accesskeys' },
+    (payload) => {
+      console.log('Change received!', payload)
+    }
+  )
+  .subscribe()
+
+// Subscribe to updates
+
+const accesskeys = supabase.channel('custom-update-channel')
+  .on(
+    'postgres_changes',
+    { event: 'UPDATE', schema: 'public', table: 'accesskeys' },
+    (payload) => {
+      console.log('Change received!', payload)
+    }
+  )
+  .subscribe()
+
+// Subscribe to deletes
+
+const accesskeys = supabase.channel('custom-delete-channel')
+  .on(
+    'postgres_changes',
+    { event: 'DELETE', schema: 'public', table: 'accesskeys' },
+    (payload) => {
+      console.log('Change received!', payload)
+    }
+  )
+  .subscribe()
+
+// Subscribe to specific rows
+
+const accesskeys = supabase.channel('custom-filter-channel')
+  .on(
+    'postgres_changes',
+    { event: '*', schema: 'public', table: 'accesskeys', filter: 'column_name=eq.someValue' },
+    (payload) => {
+      console.log('Change received!', payload)
+    }
+  )
+  .subscribe()
+
+</script>
